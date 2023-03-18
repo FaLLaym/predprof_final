@@ -10,3 +10,7 @@ def js_resource(script_name) -> Response:
 @bp.route('/css/<style_name>')
 def css_resource(style_name) -> Response:
     return send_from_directory(os.path.join(bp.static_folder, "css"), style_name)
+
+@bp.route('/img/<img_name>')
+def css_resource(img_name) -> Response:
+    return send_from_directory(os.path.join(bp.static_folder, "img"), img_name)
