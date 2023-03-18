@@ -9,7 +9,7 @@ class App():
 
     def run(self) -> None:
         self.backend_server.start()
-        print(f"{'#'*80}\nServer runs at https://localhost:{self.port}\n{'#'*80}\n")
+        print(f"{'#'*80}\nServer runs at http://localhost:{self.port}\n{'#'*80}\n")
 
     def exit(self) -> None:
         self.backend_server.terminate()
