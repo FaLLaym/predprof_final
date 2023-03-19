@@ -1,6 +1,8 @@
 import numpy as np
 #from scipy.optimize import minimize_scalar
 
+T = 20
+
 #одна единица дает мощности
 def reactor_power(fuel):
     return 0.01 * fuel
@@ -10,14 +12,14 @@ def electricity_power(reactor_power):
     return 0.11 * reactor_power
 
 #определение скорости корабля
-def ship_speed(reactor_power, ship_mass):
+def ship_speed(ship_mass):
     max_speed = 2
-    speed = max_speed * (reactor_power/80) * (200/ship_mass)
+    speed = max_speed * (200/ship_mass)
     return speed
 
 #расчет коэфа прироста SH
-def growth_koef(temp, oxygen):
-    return np.sin((-np.pi/2)+((np.pi*(temp+0.5*oxygen))/40))
+def growth_koef(T, oxygen):
+    return np.sin((-np.pi/2)+((np.pi*(T+0.5*oxygen))/40))
 
 #численность новой популяции
 def new_generation(growth_koef, go):
