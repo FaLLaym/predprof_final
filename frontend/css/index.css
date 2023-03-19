@@ -1,0 +1,92 @@
+*{
+    margin:0;
+    color:#fff;
+}
+html{
+    background: linear-gradient(to right, #EB00FF, #0075FF);
+}
+body{
+    height: 100vh;
+    margin:0;
+    width:100%;
+}
+:root { font-family: 'Inter', sans-serif; }
+@supports (font-variation-settings: normal) {
+  :root { font-family: 'Inter var', sans-serif; }
+}
+header{
+    background: #000;
+    line-height: 3em;
+    width:100%;
+    padding:0;
+    margin:0;
+    position:absolute;
+    z-index:1000;
+    display:flex;
+    justify-content: space-between;
+}
+.values{
+    display:flex;
+}
+
+.title_logo{
+    z-index:1000;
+    font-weight:700;
+    margin-left:20px;
+    font-size: 30px;
+    color: #fff;
+    background-image: linear-gradient(to right, #EB00FF, #0075FF);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+main{
+    height:100%;
+    padding-top:8%;
+    display:grid;
+    grid-template-rows:repeat(1fr,2);
+    justify-items: center;
+}
+.row{
+    height:90%;
+    width:90%;
+    display:grid;
+    grid-template-columns:30% 70%;
+    justify-items: center;
+}
+.points{
+     width:90%;
+     height:90%;
+     background-color:rgba(0,0,0,0.7);
+     border-radius: 10%;
+     padding:1.5%;
+}
+.buy{
+    display:flex;
+    justify-content: center;
+    border-radius: 10%;
+    padding:2%;
+    width:90%;
+    height:90%;
+    background-color:rgba(0,0,0,0.7);
+
+}
+.btn{
+    width:80%;
+    height:10%;
+    margin:2%;
+}
+.form{
+    display:flex;
+    flex-direction:column;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 10% 0;
+
+}
+h1{
+    text-align: center;
+}
+.myChart{
+    width: inherit;
+    height: inherit;
+}

@@ -3,21 +3,52 @@
 <head>
     <meta charset="UTF-8">
     <title>
-        Ligmaba LLs
+        КосмоJohn's
     </title>
+    <link href="https://cdn.jsdelivr.net/npm/gridjs/dist/theme/mermaid.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="/css/index.css">
 
 </head>
 <body>
-    <header></header>
+    <header>
+        <h1 class="title_logo">КосмоJohn's</h1>
+        <div class="values">
+            <div class="meam"><h1>o2</h1><h1 id="oxygen_t"></h1></div>
+            <div class="meam"><h1>kredits</h1><h1 id="money_t"></h1></div>
+            <div class="meam"><h1>fuel</h1><h1 id="fuel_t"></h1></div>
+            <div class="meam"><h1>product</h1><h1 id="product_t">0</h1></div>
+        </div>
+        <h1 class="days">days</h1>
+    </header>
     <main>
-        <h1>Hello, рыбак Джона</h1>
-        tbh ngl fr fr
-        <br/>
-    </main>
-    <footer>
+        <div class="row">
+            <div class="buy">
 
-    </footer>
+                <form class="form">
+                    <h1>
+                        <h1 class="title">PURCHASES</h1><br>
+                        <label for="oxygen"><h2>OXYGEN:</h2> </label>
+                              <input type="number" id="oxygen"><br>
+                        <label for="fuel"><h2>FUEL:</h2> </label>
+                                  <input type="number" id="fuel"><br>
+                        <label for="money"><h2>MONEY:</h2> </label>
+                                  <input type="number" id="money"><br>
+                        <input class="btn" type="submit" id="input_data" value="Send"> <input class="btn" type="reset" value="Reset">
+                    </h1>
+                </form>
+            </div>
+            <div class="points">
+                <canvas class="myChart" id="myChart"></canvas>
+            </div>
+            </div>
+        <div class="row">
+            <div class="points"></div>
+            <div class="points"></div>
+        </div>
+
+    </main>
     <script type="module" src="/js/script.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/3.7.1/chart.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/gridjs/dist/gridjs.umd.js"></script>
 </body>
 </html>
