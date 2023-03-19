@@ -8,8 +8,8 @@ from sqlite3 import OperationalError
 sql = db_init.sql
 db = db_init.db
 
-# class session_DB:
-#     ...
+class session_DB:
+    ...
 
 class points_DB:
     @staticmethod
