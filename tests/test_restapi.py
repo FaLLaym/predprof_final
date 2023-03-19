@@ -16,7 +16,7 @@ def setup(module) -> None:
         GLOBALS.app.run()
 
 def test_server() -> None:
-    assert 1==1
+    assert GLOBALS.app
 
 def test_1():
     assert 4==4
