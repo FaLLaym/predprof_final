@@ -46,11 +46,3 @@ def sh_population(T, oxygen):
         if population < 8:
             return 0
     return population
-
-
-
-
-
-
-
-

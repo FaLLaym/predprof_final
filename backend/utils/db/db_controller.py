@@ -9,15 +9,32 @@ sql = db_init.sql
 db = db_init.db
 
 class session_DB:
-    ...
+    @staticmethod
+    def get_session() -> None:
+        rows = sql.execute(f"""
+            SELECT oxygen, fuel, money FROM session_data
+        """).fetchone()
 
+        return rows
+
+    @staticmethod
+    def init_session(oxygen: int, fuel: int, money: int) -> int:
+        if session_DB.get_session():
+            return 400
+
+        sql.execute(f"""
+            INSERT INTO session_data (
+                oxygen, fuel, money
+            ) VALUES (?, ?, ?)""", [oxygen, fuel, money])
+        db.commit()
+        return 200
+    
 class points_DB:
     @staticmethod
     def init_points() -> None:
         points_data = get_points()
 
         for chunk_id, data_chunk in enumerate(points_data):
-            print(data_chunk)
             for point_data in data_chunk["points"]:
                 sql.execute(f"""
                     INSERT INTO points (

@@ -18,7 +18,8 @@ sql.execute( #TODO
     f"""CREATE TABLE session_data (
         id INTEGER UNIQUE NOT NULL PRIMARY KEY AUTOINCREMENT,
         oxygen INTEGER NOT NULL,
-        fuel INTEGER UNIQUE NOT NULL
+        fuel INTEGER UNIQUE NOT NULL,
+        money INTEGER NOT NULL
     )""") #TODO
 
 sql.execute("DROP TABLE IF EXISTS points")
