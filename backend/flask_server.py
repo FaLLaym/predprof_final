@@ -18,6 +18,9 @@ app.register_blueprint(__resources.bp)
 api = Api(app)
 
 api.add_resource(REST_API.Points.GetPoints, "/api/points/get-points", endpoint="/points/get-points")
+
+api.add_resource(REST_API.Session.PassSession, "/api/session/pass-session", endpoint="/session/pass-session")
+api.add_resource(REST_API.Session.GetSession, "/api/session/get-session", endpoint="/session/get-session")
 # api.add_resource(REST_API.Test, "/api/test/<string:test_string>", endpoint="test")
 
 @app.route('/', methods=["GET"])
