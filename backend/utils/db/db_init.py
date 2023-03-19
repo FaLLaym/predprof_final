@@ -1,24 +1,37 @@
 import sqlite3
 
 from backend import (DEBUG, DB_NAME)
-from backend.utils.db import (db_init, db_controller)
 from .. import logger
 
-db, sql = None, None
+sql, db = None, None
 
-def db_init() -> None:
-    try:
-        db = sqlite3.connect(f"./db/{DB_NAME}", check_same_thread=False)
-    except sqlite3.DatabaseError as e:
-        raise e(f"Can't open {DB_NAME}, DB-Name in config.ini seems to be incorrect")
+try:
+    db = sqlite3.connect(f"./db/{DB_NAME}", check_same_thread=False)
+except sqlite3.DatabaseError as e:
+    raise e(f"Can't open {DB_NAME}, DB-Name in config.ini seems to be incorrect")
 
-    sql = db.cursor()
-    
-    sql.execute( #TODO
-        f"""CREATE TABLE IF NOT EXISTS test (
-            id INTEGER UNIQUE NOT NULL PRIMARY KEY AUTOINCREMENT,
-        )""")
-    
-    db.commit()
+sql = db.cursor()
 
-    if DEBUG["Debug"]["DB"]: logger.debug("DB inited")
+sql.execute("DROP TABLE IF EXISTS session_data")
+
+sql.execute( #TODO
+    f"""CREATE TABLE session_data (
+        id INTEGER UNIQUE NOT NULL PRIMARY KEY AUTOINCREMENT,
+        oxygen INTEGER NOT NULL,
+        fuel INTEGER UNIQUE NOT NULL
+    )""") #TODO
+
+sql.execute("DROP TABLE IF EXISTS points")
+
+sql.execute(
+    f"""CREATE TABLE IF NOT EXISTS points (
+        id INTEGER UNIQUE NOT NULL PRIMARY KEY AUTOINCREMENT,
+        chunk_id INTEGER NOT NULL,
+        sh INTEGER NOT NULL,
+        distance INTEGER NOT NULL
+    )"""
+)
+
+db.commit()
+
+if DEBUG["db"]: logger.debug("DB inited")
