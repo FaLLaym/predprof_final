@@ -4,11 +4,13 @@ try{
       event.preventDefault();
 
       var money = document.getElementById("money").value;
-      document.getElementById("money_t").innerH
+      document.getElementById("money_t").innerText =  JSON.stringify(money);
       var oxygen = document.getElementById("oxygen").value;
+      document.getElementById("oxygen_t").innerText =  JSON.stringify(oxygen);
       var fuel = document.getElementById("fuel").value;
+      document.getElementById("fuel_t").innerText =  JSON.stringify(fuel);
       event.target.reset();
-      console.log("o2: " + O + "  " + "F: " + F);
+      console.log("o2: " + oxygen + "  " + "F: " + fuel+ "M: " + money);
 
       fetch('http://localhost:5000/api/session/get-session', {
           method: "POST",
